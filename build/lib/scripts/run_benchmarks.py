@@ -117,15 +117,6 @@ def gemini_content(query_text: str) -> List[genai_types.Content]:
     ]
 
 
-def build_file_search_tool(store_name: str, top_k: int) -> genai_types.Tool:
-    return genai_types.Tool(
-        file_search=genai_types.FileSearch(
-            file_search_store_names=[store_name],
-            top_k=top_k,
-        )
-    )
-
-
 def build_helix_runner(
     embedder: utils.OpenAIEmbedder,
     helix_client: utils.HelixClient,
@@ -151,9 +142,17 @@ def build_gemini_runner(
     model_name: str,
     top_k: int,
 ) -> Any:
-    tool = build_file_search_tool(store_name, top_k)
+    # According to official docs: https://ai.google.dev/gemini-api/docs/file-search#python
+    # file_search should be passed directly in tools list
     generation_config = genai_types.GenerateContentConfig(
-        tools=[tool],
+        tools=[
+            genai_types.Tool(
+                file_search=genai_types.FileSearch(
+                    file_search_store_names=[store_name],
+                    top_k=top_k,
+                )
+            )
+        ],
         response_modalities=["TEXT"],
     )
 

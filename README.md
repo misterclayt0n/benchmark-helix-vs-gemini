@@ -69,10 +69,24 @@ Key knobs:
 
 ## Outputs
 
-`run_benchmarks.py` writes `results/helix_results.csv` and `results/gemini_results.csv` (system, query_id, concurrency, attempt, latency, timestamp). It also prints p50/p95/p99 latency plus QPS per concurrency level, and logs top-1 hits for a sanity sample of queries.
+`run_benchmarks.py` writes `results/helix_results.csv` and `results/gemini_results.csv` (system, query_id, concurrency, attempt, latency, timestamp) and logs p50/p95/p99 + QPS per concurrency level. Run `python scripts/plot_results.py` to turn those CSVs into an SVG plot:
+
+![Median latency vs concurrency](results/latency_plot.svg)
 
 ## Extending / Deploying
 
-- When moving Helix-DB to EC2, adjust `helix.base_url` and `HELIX_API_KEY`.
+- When moving Helix-DB to EC2, adjust `helix.base_url` (e.g., `http://52.55.138.22:7070`) and `HELIX_API_KEY`.
 - Gemini ingestion logs the File Search store ID (e.g., `fileStores/123`) so you can reuse it by setting `gemini.store_name`.
 - All HTTP clients are plain `httpx`, making it easy to swap API hosts or plug in mock servers for CI.
+
+### EC2 Setup Reference
+
+For the remote Helix numbers shown above, Helix ran on an **Amazon Linux** instance upgraded to **Ubuntu 24.04** equivalent, provisioned as `c7i.xlarge` (4 vCPUs, 8 GiB RAM, 100 GB gp3 EBS). Key steps:
+
+1. Install Docker Engine + Buildx/Compose plugins (`docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`).
+2. Install the Helix CLI via `curl -sSL https://install.helix-db.com | bash`.
+3. Clone this repo, run `helix build dev` then `helix start dev`.
+4. Open TCP 7070 in the instance security group (or tunnel `ssh -L 7070:localhost:7070`).
+5. Run `uv run python scripts/ingest_helix.py` on the instance to load the dataset, then point your laptop’s `config/helix.base_url` at the EC2 public IP when running the benchmarks.
+
+Any c7i/c7g instance with at least 4 vCPUs and 8 GiB RAM will behave similarly; scale up if you expect higher QPS or larger corpora.

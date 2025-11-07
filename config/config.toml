@@ -14,7 +14,7 @@ max_retries = 5
 retry_backoff_seconds = 2.0
 
 [helix]
-base_url = "http://localhost:7070"
+base_url = "http://52.55.138.22:7070"
 # api_key_env = "HELIX_API_KEY"
 insert_query = "insert_document_chunks"
 search_query = "search_chunks"

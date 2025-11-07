@@ -8,6 +8,7 @@ benchmark_helix_vs_gemini.egg-info/top_level.txt
 scripts/__init__.py
 scripts/ingest_gemini.py
 scripts/ingest_helix.py
+scripts/plot_results.py
 scripts/prepare_dataset.py
 scripts/run_benchmarks.py
 scripts/utils.py

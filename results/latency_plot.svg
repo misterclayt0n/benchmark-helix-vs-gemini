@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<style>text { font-family: "Helvetica", "Arial", sans-serif; font-size: 14px; }</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<line x1="80" y1="420" x2="720" y2="420" stroke="#000" stroke-width="1.5"/>
+<line x1="80" y1="80" x2="80" y2="420" stroke="#000" stroke-width="1.5"/>
+<text x="400.0" y="480" text-anchor="middle">Concurrency</text>
+<text x="20" y="250.0" transform="rotate(-90 20,250.0)" text-anchor="middle">Median latency (ms)</text>
+<line x1="80.0" y1="420" x2="80.0" y2="425" stroke="#000"/>
+<text x="80.0" y="445" text-anchor="middle">1</text>
+<line x1="400.0" y1="420" x2="400.0" y2="425" stroke="#000"/>
+<text x="400.0" y="445" text-anchor="middle">4</text>
+<line x1="720.0" y1="420" x2="720.0" y2="425" stroke="#000"/>
+<text x="720.0" y="445" text-anchor="middle">16</text>
+<line x1="75" y1="335.0" x2="720" y2="335.0" stroke="#ccc" stroke-dasharray="4 4"/>
+<text x="70" y="340.0" text-anchor="end">2756</text>
+<line x1="75" y1="250.0" x2="720" y2="250.0" stroke="#ccc" stroke-dasharray="4 4"/>
+<text x="70" y="255.0" text-anchor="end">5513</text>
+<line x1="75" y1="165.0" x2="720" y2="165.0" stroke="#ccc" stroke-dasharray="4 4"/>
+<text x="70" y="170.0" text-anchor="end">8270</text>
+<line x1="75" y1="80.0" x2="720" y2="80.0" stroke="#ccc" stroke-dasharray="4 4"/>
+<text x="70" y="85.0" text-anchor="end">11027</text>
+<circle cx="80.0" cy="378.7119660739859" r="4" fill="#2c7fb8" stroke="#ffffff" stroke-width="1"/>
+<text x="80.0" y="368.7119660739859" text-anchor="middle" fill="#2c7fb8">1339</text>
+<circle cx="400.0" cy="391.56296151566505" r="4" fill="#2c7fb8" stroke="#ffffff" stroke-width="1"/>
+<text x="400.0" y="381.56296151566505" text-anchor="middle" fill="#2c7fb8">922</text>
+<circle cx="720.0" cy="388.04813546965" r="4" fill="#2c7fb8" stroke="#ffffff" stroke-width="1"/>
+<text x="720.0" y="378.04813546965" text-anchor="middle" fill="#2c7fb8">1036</text>
+<path d="M80.0,378.7119660739859 L400.0,391.56296151566505 L720.0,388.04813546965" fill="none" stroke="#2c7fb8" stroke-width="2.5"/>
+<circle cx="80.0" cy="110.90909090909093" r="4" fill="#d95f0e" stroke="#ffffff" stroke-width="1"/>
+<text x="80.0" y="100.90909090909093" text-anchor="middle" fill="#d95f0e">10024</text>
+<circle cx="400.0" cy="189.55262886060783" r="4" fill="#d95f0e" stroke="#ffffff" stroke-width="1"/>
+<text x="400.0" y="179.55262886060783" text-anchor="middle" fill="#d95f0e">7473</text>
+<circle cx="720.0" cy="203.2586648208155" r="4" fill="#d95f0e" stroke="#ffffff" stroke-width="1"/>
+<text x="720.0" y="193.2586648208155" text-anchor="middle" fill="#d95f0e">7029</text>
+<path d="M80.0,110.90909090909093 L400.0,189.55262886060783 L720.0,203.2586648208155" fill="none" stroke="#d95f0e" stroke-width="2.5"/>
+<rect x="550" y="70" width="170" height="70" fill="#fff" stroke="#ccc"/>
+<line x1="560" y1="90" x2="590" y2="90" stroke="#2c7fb8" stroke-width="3"/>
+<text x="600" y="95" fill="#333">Helix</text>
+<line x1="560" y1="114" x2="590" y2="114" stroke="#d95f0e" stroke-width="3"/>
+<text x="600" y="119" fill="#333">Gemini</text>
+</svg>
