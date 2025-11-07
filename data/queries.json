@@ -1,0 +1,5 @@
+[
+  {"id": "q1", "text": "Summarize the main architectural goals of this project."},
+  {"id": "q2", "text": "List any assumptions that might affect deployment."},
+  {"id": "q3", "text": "Identify configuration parameters that impact throughput."}
+]

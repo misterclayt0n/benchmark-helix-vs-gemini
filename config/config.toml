@@ -1,0 +1,36 @@
+[data]
+raw_dir = "data/raw"
+chunks_file = "data/chunks/dataset.jsonl"
+queries_file = "data/queries.json"
+
+[embeddings]
+provider = "openai"
+model = "text-embedding-3-small"
+api_base = "https://api.openai.com/v1"
+api_key_env = "OPENAI_API_KEY"
+batch_size = 64
+timeout_seconds = 60
+max_retries = 5
+retry_backoff_seconds = 2.0
+
+[helix]
+base_url = "http://localhost:7070"
+# api_key_env = "HELIX_API_KEY"
+insert_query = "insert_document_chunks"
+search_query = "search_chunks"
+batch_size = 64
+timeout_seconds = 30
+
+[gemini]
+store_name = "fileSearchStores/benchmark-file-store-5fgjymfvj5st"
+store_display_name = "Benchmark File Store"
+poll_interval_seconds = 5
+model = "gemini-1.5-pro-latest"
+results_per_query = 8
+
+[benchmark]
+concurrency = [1, 4, 16]
+attempts_per_level = 3
+report_top_k = 5
+output_dir = "results"
+sanity_sample = 2

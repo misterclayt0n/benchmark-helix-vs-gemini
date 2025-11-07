@@ -1,0 +1,9 @@
+[project]
+name = "benchmark-helix-vs-gemini"
+queries = "./helix/"
+
+[local.dev]
+port = 7070
+build_mode = "debug"
+
+[cloud]
