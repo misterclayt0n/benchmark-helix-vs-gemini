@@ -25,7 +25,7 @@ timeout_seconds = 30
 store_name = "fileSearchStores/benchmark-file-store-5fgjymfvj5st"
 store_display_name = "Benchmark File Store"
 poll_interval_seconds = 5
-model = "gemini-1.5-pro-latest"
+model = "gemini-2.5-flash"
 results_per_query = 8
 
 [benchmark]

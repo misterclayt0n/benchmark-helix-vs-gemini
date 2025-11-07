@@ -8,19 +8,20 @@
         system = "x86_64-linux";
         pkgs = import nixpkgs { inherit system; };
       in {
-        devShells.${system}.default = pkgs.mkShell {
-          packages = with pkgs; [
-            python313             # same Python you’re using
-            uv
-            stdenv.cc.cc.lib      # provides libstdc++.so.6
-            pkg-config
-            openssl
-          ];
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          python313             # same Python you’re using
+          uv
+          stdenv.cc.cc.lib      # provides libstdc++.so.6
+          pkg-config
+          openssl
+        ];
 
-          shellHook = ''
-            export UV_SYSTEM_PYTHON=1
-            echo "Dev shell ready (python, uv, libstdc++)."
-          '';
-        };
+        shellHook = ''
+          export UV_SYSTEM_PYTHON=1
+          export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+          echo "Dev shell ready (python, uv, libstdc++)."
+        '';
+      };
       };
   }
